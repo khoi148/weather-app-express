@@ -21,7 +21,6 @@ const getForecast = (res, location, coords) => {
         error: `cannot fetch weather at your location`,
       });
     }
-    console.log(body);
     let data = body.hourly.data.slice().map((item) => {
       item.dayOfTheWeek = DAYS[new Date(item.time * 1000).getDay()];
       item.time = new Date(item.time * 1000).getHours();

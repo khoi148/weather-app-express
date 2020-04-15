@@ -4,3 +4,6 @@
 
 1. Enter a location into the search bar in the top right.
 2. Press enter/or click on the get forecast button, and see the results in a 24 hour upcoming weather forecast for that location.
+
+A free live demo of this app: https://weather-app-express123.herokuapp.com
+(Hosted on Heroku)

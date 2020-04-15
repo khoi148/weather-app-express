@@ -1,0 +1,78 @@
+<div class="container">
+  {{!-- Navbar --}}
+  <div class="row bg-dark m-0 p-3 rounded" style="font-size: 24px">
+    <div class="col-md-6 text-light">
+      <a class="text-light" href="!#">About</a>
+      <span> | </span>
+      <a class="text-light" href="!#">Locations</a>
+    </div>
+    {{!-- Search bar --}}
+    <div class="col-md-6 d-flex justify-content-end text-light">
+      <form class="d-flex" action="/" method="GET">
+        <input name="city" placeholder="Enter a city name" required>
+        <input type="submit" value="Get Forecast">
+      </form>
+    </div>
+  </div>
+  {{!-- Header section --}}
+  <div class="my-3 text-light">
+    <h2>Khoi's Weather Forecast App!</h2>
+  </div>
+
+  {{!-- Forecast Section --}}
+  <div>
+    <div class="text-light mb-5">
+      {{#if greeting}}
+      <h2>{{greeting}}</h2>
+      {{/if}}
+    </div>
+
+    {{#if city}}
+    <h2>Welcome to {{city}}</h2>
+    {{/if}}
+
+    {{#if forecast }}
+    <div class="text-center bg-dark text-light p-3">
+      <p>Location: <span class="text-success">{{ forecast.location }}</span>
+      </p>
+      <p>Temperature: <span class="text-danger">{{ forecast.temperature }}</span></p>
+      <p>Summary: <span class="text-warning">{{ forecast.summary }}</span></p>
+    </div>
+    {{/if}}
+
+    <div class="row bg-light m-0">
+      {{#each hourly }}
+      <div class="col-md-2 p-3 text-center">
+        <p class="text-muted">{{ dayOfTheWeek }}</p>
+        <p class="text-muted">{{ time }}</p>
+        <p class="font-weight-bold">{{ temperature }}</p>
+      </div>
+      {{/each}}
+    </div>
+
+    {{#if error }}
+    <p style="color:red"> {{ error }} </p>
+    {{/if}}
+  </div>
+
+  {{!-- Footer section --}}
+  <div>
+  </div>
+  <script>
+    //console.log(hourly);
+    let lat, long = '';
+    function getGeoLocation() {
+      if (window.navigator.geolocation) {
+        coords = navigator.geolocation.getCurrentPosition((position) => {
+          console.log(position.coords.latitude, position.coords.longitude);
+
+        });
+      }
+      else {
+        alert('Browser geolocation was denied, or not supported');
+      }
+    }
+    //getGeoLocation();
+    //console.log(coords);
+  </script>
+</div>

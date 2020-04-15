@@ -7,3 +7,5 @@
 
 A free live demo of this app: https://weather-app-express123.herokuapp.com
 (Hosted on Heroku)
+
+Dev Notes: .env is hidden, not commited to the Git. Use Heroku to set your own config variables. Or when cloning this repo locally, create a .env file at the root of the cloned folder, and create 3 variables (2 API Keys, and a Port specification)
